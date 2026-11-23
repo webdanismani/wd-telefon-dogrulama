@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<template_modifications>
+  <modification type="public" template="register_form" modification_key="wdpv_register_form_fields" description="Kayıt formu: telefon doğrulama alanları" execution_order="10" enabled="1" action="preg_replace">
+    <find><![CDATA[#^([\s\S]*?)(\s*<xf:macro\s+(?:template="register_macros"\s+name="tos_row"|id="register_macros::tos_row")[^>]*/>)#]]></find>
+    <replace><![CDATA[$1
+<xf:macro template="wdpv_register_macros" name="fields" />$2]]></replace>
+  </modification>
+  <modification type="public" template="register_form" modification_key="wdpv_register_form_fallback" description="Kayıt formu: telefon doğrulama alanları (yedek konum)" execution_order="20" enabled="1" action="preg_replace">
+    <find><![CDATA[#^(?![\s\S]*wdpv_register_macros)([\s\S]*?<div class="block-body">)#]]></find>
+    <replace><![CDATA[$1
+<xf:macro template="wdpv_register_macros" name="fields" />]]></replace>
+  </modification>
+  <modification type="public" template="register_connected_account" modification_key="wdpv_register_connected_account_fields" description="Sosyal hesapla kayıt formu: telefon doğrulama alanları" execution_order="10" enabled="1" action="preg_replace">
+    <find><![CDATA[#^([\s\S]*?)(\s*<xf:macro\s+(?:template="register_macros"\s+name="tos_row"|id="register_macros::tos_row")[^>]*/>)#]]></find>
+    <replace><![CDATA[$1
+<xf:macro template="wdpv_register_macros" name="fields" />$2]]></replace>
+  </modification>
+  <modification type="public" template="register_connected_account" modification_key="wdpv_register_connected_account_fallback" description="Sosyal hesapla kayıt formu: telefon doğrulama alanları (yedek konum)" execution_order="20" enabled="1" action="preg_replace">
+    <find><![CDATA[#^(?![\s\S]*wdpv_register_macros)([\s\S]*?<div class="block-body">)#]]></find>
+    <replace><![CDATA[$1
+<xf:macro template="wdpv_register_macros" name="fields" />]]></replace>
+  </modification>
+</template_modifications>

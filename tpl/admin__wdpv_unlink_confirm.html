@@ -1,0 +1,13 @@
+<xf:title>Numarayı kaldır</xf:title>
+
+<xf:form action="{{ link('wd-phone-verify/unlink', null, {'user_id': $row.user_id}) }}" ajax="true" class="block">
+	<div class="block-container">
+		<div class="block-body">
+			<xf:inforow rowtype="confirm">
+				<strong>{$row.username}</strong> adlı üyeye bağlı <strong>{$row.phone_formatted}</strong> numarası kaldırılsın mı?<br />
+				<span class="u-muted">Üyelik etkilenmez. Numara serbest kalır ve yeni bir kayıtta tekrar kullanılabilir.</span>
+			</xf:inforow>
+		</div>
+		<xf:submitrow rowtype="simple" icon="delete" submit="Kaldır" />
+	</div>
+</xf:form>

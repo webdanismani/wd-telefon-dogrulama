@@ -1,0 +1,26 @@
+<xf:macro name="fields">
+	<xf:if is="$xf.options.wdpvEnabled">
+		<xf:css src="wdpv.less" />
+		<xf:js src="webdanismani/phoneverify/register.js" addon="WebDanismani/PhoneVerify" />
+
+		<xf:formrow label="{{ phrase('wdpv_phone_number') }}" rowtype="input" explain="{{ phrase('wdpv_phone_explain') }}">
+			<div class="inputGroup wdpv-group">
+				<input type="tel" name="wdpv_phone" class="input" autocomplete="tel-national" inputmode="tel" maxlength="20"
+					placeholder="05XX XXX XX XX" required="required" data-wdpv-phone="1" />
+				<span class="inputGroup-splitter"></span>
+				<button type="button" class="button wdpv-send" data-wdpv-send="1"
+					data-url="{{ link('register/wd-phone-send') }}"
+					data-label="{{ phrase('wdpv_send_code') }}"
+					data-label-again="{{ phrase('wdpv_send_again') }}"
+					data-label-wait="{{ phrase('wdpv_send_wait') }}"
+					data-label-sending="{{ phrase('wdpv_sending') }}"
+					data-label-error="{{ phrase('wdpv_error_send_failed') }}"><span class="button-text">{{ phrase('wdpv_send_code') }}</span></button>
+			</div>
+			<div class="wdpv-status" data-wdpv-status="1" aria-live="polite"></div>
+		</xf:formrow>
+
+		<xf:textboxrow name="wdpv_code" label="{{ phrase('wdpv_code') }}"
+			inputmode="numeric" autocomplete="one-time-code" maxlength="8"
+			required="required" rowclass="formRow--limited" />
+	</xf:if>
+</xf:macro>

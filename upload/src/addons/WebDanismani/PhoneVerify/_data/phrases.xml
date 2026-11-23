@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<phrases>
+  <phrase title="admin_navigation.wdPhoneVerify" version_id="1000070" version_string="1.0.0"><![CDATA[Telefon doğrulama]]></phrase>
+  <phrase title="option.wdpvCodeLength" version_id="1000070" version_string="1.0.0"><![CDATA[Kod uzunluğu]]></phrase>
+  <phrase title="option.wdpvCodeTtl" version_id="1000070" version_string="1.0.0"><![CDATA[Kod geçerlilik süresi (dakika)]]></phrase>
+  <phrase title="option.wdpvConnected" version_id="1000070" version_string="1.0.0"><![CDATA[Sosyal hesapla kayıtta da iste]]></phrase>
+  <phrase title="option.wdpvDailyLimit" version_id="1000070" version_string="1.0.0"><![CDATA[Günlük toplam SMS sınırı]]></phrase>
+  <phrase title="option.wdpvEnabled" version_id="1000070" version_string="1.0.0"><![CDATA[Telefon doğrulamayı etkinleştir]]></phrase>
+  <phrase title="option.wdpvEnterprise" version_id="1000070" version_string="1.0.0"><![CDATA[Kurumsal OTP hesabı]]></phrase>
+  <phrase title="option.wdpvHeader" version_id="1000070" version_string="1.0.0"><![CDATA[Gönderici adı (SMS başlığı)]]></phrase>
+  <phrase title="option.wdpvLimitIp" version_id="1000070" version_string="1.0.0"><![CDATA[IP başına saatlik SMS sınırı]]></phrase>
+  <phrase title="option.wdpvLimitPhone" version_id="1000070" version_string="1.0.0"><![CDATA[Numara başına saatlik SMS sınırı]]></phrase>
+  <phrase title="option.wdpvMaxAttempts" version_id="1000070" version_string="1.0.0"><![CDATA[Yanlış kod deneme hakkı]]></phrase>
+  <phrase title="option.wdpvMessage" version_id="1000070" version_string="1.0.0"><![CDATA[SMS metni]]></phrase>
+  <phrase title="option.wdpvPassword" version_id="1000070" version_string="1.0.0"><![CDATA[NetGSM API şifresi]]></phrase>
+  <phrase title="option.wdpvResendDelay" version_id="1000070" version_string="1.0.0"><![CDATA[Yeniden gönderme bekleme süresi (saniye)]]></phrase>
+  <phrase title="option.wdpvSandbox" version_id="1000070" version_string="1.0.0"><![CDATA[Sandbox (test) modu]]></phrase>
+  <phrase title="option.wdpvUnique" version_id="1000070" version_string="1.0.0"><![CDATA[Bir numara ile yalnızca bir hesap]]></phrase>
+  <phrase title="option.wdpvUsercode" version_id="1000070" version_string="1.0.0"><![CDATA[NetGSM abone numarası]]></phrase>
+  <phrase title="option_explain.wdpvCodeLength" version_id="1000070" version_string="1.0.0"><![CDATA[Doğrulama kodunun hane sayısı.]]></phrase>
+  <phrase title="option_explain.wdpvCodeTtl" version_id="1000070" version_string="1.0.0"><![CDATA[]]></phrase>
+  <phrase title="option_explain.wdpvConnected" version_id="1000070" version_string="1.0.0"><![CDATA[Google, Facebook gibi bağlı hesaplarla kayıt olanlardan da telefon doğrulaması istenir.]]></phrase>
+  <phrase title="option_explain.wdpvDailyLimit" version_id="1000070" version_string="1.0.0"><![CDATA[Son 24 saatte gönderilebilecek toplam kod sayısı. Bot saldırısında SMS kredinizin tükenmesini önler. 0: sınırsız.]]></phrase>
+  <phrase title="option_explain.wdpvEnabled" version_id="1000070" version_string="1.0.0"><![CDATA[Açıkken kayıt formunda cep telefonu ve doğrulama kodu alanları çıkar; numarasını SMS ile doğrulamayan kayıt olamaz. Önce NetGSM bilgilerini girip Kullanıcılar › Telefon doğrulama sayfasından test SMS'i gönderin.]]></phrase>
+  <phrase title="option_explain.wdpvEnterprise" version_id="1000070" version_string="1.0.0"><![CDATA[Yalnızca NetGSM hesabınızda kurumsal OTP hizmeti tanımlıysa açın. Hesabınıza uymazsa gönderim FORBIDDEN hatası alır.]]></phrase>
+  <phrase title="option_explain.wdpvHeader" version_id="1000070" version_string="1.0.0"><![CDATA[NetGSM hesabınıza kayıtlı gönderici adı, ör. OBLIFEX. Büyük/küçük harf fark etmez.]]></phrase>
+  <phrase title="option_explain.wdpvLimitIp" version_id="1000070" version_string="1.0.0"><![CDATA[Bir IP adresinden bir saatte en fazla bu kadar kod istenebilir. 0: sınırsız.]]></phrase>
+  <phrase title="option_explain.wdpvLimitPhone" version_id="1000070" version_string="1.0.0"><![CDATA[Bir numaraya bir saatte en fazla bu kadar kod gönderilir. 0: sınırsız.]]></phrase>
+  <phrase title="option_explain.wdpvMaxAttempts" version_id="1000070" version_string="1.0.0"><![CDATA[Bu kadar hatalı denemeden sonra yeni kod istenmesi gerekir.]]></phrase>
+  <phrase title="option_explain.wdpvMessage" version_id="1000070" version_string="1.0.0"><![CDATA[Kullanılabilir: {code} (doğrulama kodu, zorunlu), {site} (forum adı), {minutes} (kodun geçerlilik süresi). Türkçe karakterler NetGSM tarafından Latin karşılığına çevrilir. Metin gönderici adıyla en fazla 155 karakter olabilir.]]></phrase>
+  <phrase title="option_explain.wdpvPassword" version_id="1000070" version_string="1.0.0"><![CDATA[API alt kullanıcısının şifresi (önerilen). NetGSM panelinde Abonelik İşlemleri › API İşlemleri bölümünden API kullanıcısı oluşturun ve sunucunuzun IP adresine API erişim izni verin.]]></phrase>
+  <phrase title="option_explain.wdpvResendDelay" version_id="1000070" version_string="1.0.0"><![CDATA[Aynı ziyaretçi bu süre dolmadan yeni kod isteyemez.]]></phrase>
+  <phrase title="option_explain.wdpvSandbox" version_id="1000070" version_string="1.0.0"><![CDATA[İstekler NetGSM test ortamına (ext-sandbox.netgsm.com.tr) gider, gerçek SMS gönderilmez ve ücretsizdir. Yalnızca NetGSM demo hesaplarıyla çalışır.]]></phrase>
+  <phrase title="option_explain.wdpvUnique" version_id="1000070" version_string="1.0.0"><![CDATA[Açıkken doğrulanmış bir numara ikinci bir hesapta kullanılamaz.]]></phrase>
+  <phrase title="option_explain.wdpvUsercode" version_id="1000070" version_string="1.0.0"><![CDATA[NetGSM hesabınızın abone numarası (ör. 850XXXXXXX).]]></phrase>
+  <phrase title="option_group.wdPhoneVerify" version_id="1000070" version_string="1.0.0"><![CDATA[WD Telefon Doğrulama]]></phrase>
+  <phrase title="option_group_description.wdPhoneVerify" version_id="1000070" version_string="1.0.0"><![CDATA[Kayıt sırasında NetGSM ile SMS doğrulama kodu gönderme ayarları.]]></phrase>
+  <phrase title="wdpv_code" version_id="1000070" version_string="1.0.0"><![CDATA[Doğrulama kodu]]></phrase>
+  <phrase title="wdpv_code_sent" version_id="1000070" version_string="1.0.0"><![CDATA[Doğrulama kodu {phone} numarasına gönderildi. Kodu aşağıdaki kutuya yazın.]]></phrase>
+  <phrase title="wdpv_error_enter_code" version_id="1000070" version_string="1.0.0"><![CDATA[Telefonunuza gelen doğrulama kodunu girin.]]></phrase>
+  <phrase title="wdpv_error_expired" version_id="1000070" version_string="1.0.0"><![CDATA[Doğrulama kodunun süresi doldu. Yeni kod isteyin.]]></phrase>
+  <phrase title="wdpv_error_invalid_phone" version_id="1000070" version_string="1.0.0"><![CDATA[Geçerli bir cep telefonu numarası girin, ör. 0532 123 45 67.]]></phrase>
+  <phrase title="wdpv_error_limit" version_id="1000070" version_string="1.0.0"><![CDATA[Çok fazla kod istendi. Lütfen bir süre sonra tekrar deneyin.]]></phrase>
+  <phrase title="wdpv_error_logged_in" version_id="1000070" version_string="1.0.0"><![CDATA[Zaten giriş yapmışsınız.]]></phrase>
+  <phrase title="wdpv_error_no_code" version_id="1000070" version_string="1.0.0"><![CDATA[Önce telefon numaranıza doğrulama kodu gönderin.]]></phrase>
+  <phrase title="wdpv_error_phone_changed" version_id="1000070" version_string="1.0.0"><![CDATA[Telefon numarası değişti. Yeni numaraya kod gönderin.]]></phrase>
+  <phrase title="wdpv_error_phone_taken" version_id="1000070" version_string="1.0.0"><![CDATA[Bu telefon numarası başka bir hesapta kullanılıyor.]]></phrase>
+  <phrase title="wdpv_error_send_failed" version_id="1000070" version_string="1.0.0"><![CDATA[Doğrulama kodu gönderilemedi. Lütfen biraz sonra tekrar deneyin.]]></phrase>
+  <phrase title="wdpv_error_too_many_attempts" version_id="1000070" version_string="1.0.0"><![CDATA[Çok fazla hatalı deneme yapıldı. Yeni kod isteyin.]]></phrase>
+  <phrase title="wdpv_error_unavailable" version_id="1000070" version_string="1.0.0"><![CDATA[SMS doğrulaması şu anda kullanılamıyor. Lütfen daha sonra tekrar deneyin.]]></phrase>
+  <phrase title="wdpv_error_wait" version_id="1000070" version_string="1.0.0"><![CDATA[Yeni kod istemek için {seconds} saniye bekleyin.]]></phrase>
+  <phrase title="wdpv_error_wrong_code" version_id="1000070" version_string="1.0.0"><![CDATA[Doğrulama kodu hatalı. Kalan deneme hakkı: {left}.]]></phrase>
+  <phrase title="wdpv_phone_explain" version_id="1000070" version_string="1.0.0"><![CDATA[Numaranıza SMS ile bir doğrulama kodu göndereceğiz. Numaranız herkese gösterilmez.]]></phrase>
+  <phrase title="wdpv_phone_number" version_id="1000070" version_string="1.0.0"><![CDATA[Cep telefonu]]></phrase>
+  <phrase title="wdpv_send_again" version_id="1000070" version_string="1.0.0"><![CDATA[Tekrar gönder]]></phrase>
+  <phrase title="wdpv_send_code" version_id="1000070" version_string="1.0.0"><![CDATA[Kod gönder]]></phrase>
+  <phrase title="wdpv_send_wait" version_id="1000070" version_string="1.0.0"><![CDATA[Tekrar gönder ({s})]]></phrase>
+  <phrase title="wdpv_sending" version_id="1000070" version_string="1.0.0"><![CDATA[Gönderiliyor...]]></phrase>
+  <phrase title="wdpv_status_blocked" version_id="1000070" version_string="1.0.0"><![CDATA[Sınıra takıldı]]></phrase>
+  <phrase title="wdpv_status_failed" version_id="1000070" version_string="1.0.0"><![CDATA[Başarısız]]></phrase>
+  <phrase title="wdpv_status_sent" version_id="1000070" version_string="1.0.0"><![CDATA[Gönderildi]]></phrase>
+  <phrase title="wdpv_status_test" version_id="1000070" version_string="1.0.0"><![CDATA[Test]]></phrase>
+</phrases>

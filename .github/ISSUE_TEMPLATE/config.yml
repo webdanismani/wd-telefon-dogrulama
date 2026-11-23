@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Destek ve sorular / Support and questions
+    url: https://oblifex.com
+    about: Kurulum ve kullanım soruları için oblifex.com webmaster destek forumunu kullanın. / Use the oblifex.com webmaster support forum for setup and usage questions.
+  - name: XenForo eklenti geliştirme / XenForo add-on development
+    url: https://webdanismani.com
+    about: Özel eklenti ve forum kurulumu için / For custom add-ons and forum setup

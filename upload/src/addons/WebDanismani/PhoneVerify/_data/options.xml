@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<options>
+  <option option_id="wdpvEnabled" edit_format="onoff" data_type="boolean" advanced="0">
+    <default_value>0</default_value>
+    <relation group_id="wdPhoneVerify" display_order="10"/>
+  </option>
+  <option option_id="wdpvUsercode" edit_format="textbox" data_type="string" advanced="0">
+    <default_value></default_value>
+    <relation group_id="wdPhoneVerify" display_order="20"/>
+  </option>
+  <option option_id="wdpvPassword" edit_format="textbox" data_type="string" advanced="0">
+    <default_value></default_value>
+    <edit_format_params>type=password</edit_format_params>
+    <relation group_id="wdPhoneVerify" display_order="30"/>
+  </option>
+  <option option_id="wdpvHeader" edit_format="textbox" data_type="string" advanced="0">
+    <default_value></default_value>
+    <relation group_id="wdPhoneVerify" display_order="40"/>
+  </option>
+  <option option_id="wdpvMessage" edit_format="textbox" data_type="string" advanced="0">
+    <default_value>{code} {site} dogrulama kodunuzdur. Bu kodu kimseyle paylasmayiniz.</default_value>
+    <edit_format_params>rows=3</edit_format_params>
+    <relation group_id="wdPhoneVerify" display_order="50"/>
+  </option>
+  <option option_id="wdpvCodeLength" edit_format="spinbox" data_type="positive_integer" advanced="0">
+    <default_value>6</default_value>
+    <edit_format_params>min=4
+max=8</edit_format_params>
+    <relation group_id="wdPhoneVerify" display_order="60"/>
+  </option>
+  <option option_id="wdpvCodeTtl" edit_format="spinbox" data_type="positive_integer" advanced="0">
+    <default_value>5</default_value>
+    <edit_format_params>min=1
+max=30</edit_format_params>
+    <relation group_id="wdPhoneVerify" display_order="70"/>
+  </option>
+  <option option_id="wdpvMaxAttempts" edit_format="spinbox" data_type="positive_integer" advanced="0">
+    <default_value>5</default_value>
+    <edit_format_params>min=3
+max=10</edit_format_params>
+    <relation group_id="wdPhoneVerify" display_order="80"/>
+  </option>
+  <option option_id="wdpvResendDelay" edit_format="spinbox" data_type="positive_integer" advanced="0">
+    <default_value>60</default_value>
+    <edit_format_params>min=30
+max=600</edit_format_params>
+    <relation group_id="wdPhoneVerify" display_order="90"/>
+  </option>
+  <option option_id="wdpvLimitPhone" edit_format="spinbox" data_type="unsigned_integer" advanced="0">
+    <default_value>3</default_value>
+    <edit_format_params>min=0
+max=20</edit_format_params>
+    <relation group_id="wdPhoneVerify" display_order="100"/>
+  </option>
+  <option option_id="wdpvLimitIp" edit_format="spinbox" data_type="unsigned_integer" advanced="0">
+    <default_value>5</default_value>
+    <edit_format_params>min=0
+max=50</edit_format_params>
+    <relation group_id="wdPhoneVerify" display_order="110"/>
+  </option>
+  <option option_id="wdpvDailyLimit" edit_format="spinbox" data_type="unsigned_integer" advanced="0">
+    <default_value>300</default_value>
+    <edit_format_params>min=0</edit_format_params>
+    <relation group_id="wdPhoneVerify" display_order="120"/>
+  </option>
+  <option option_id="wdpvUnique" edit_format="onoff" data_type="boolean" advanced="0">
+    <default_value>1</default_value>
+    <relation group_id="wdPhoneVerify" display_order="130"/>
+  </option>
+  <option option_id="wdpvConnected" edit_format="onoff" data_type="boolean" advanced="0">
+    <default_value>1</default_value>
+    <relation group_id="wdPhoneVerify" display_order="140"/>
+  </option>
+  <option option_id="wdpvSandbox" edit_format="onoff" data_type="boolean" advanced="0">
+    <default_value>0</default_value>
+    <relation group_id="wdPhoneVerify" display_order="150"/>
+  </option>
+  <option option_id="wdpvEnterprise" edit_format="onoff" data_type="boolean" advanced="0">
+    <default_value>0</default_value>
+    <relation group_id="wdPhoneVerify" display_order="160"/>
+  </option>
+</options>

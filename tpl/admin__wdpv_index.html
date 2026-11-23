@@ -1,0 +1,152 @@
+<xf:title>WD Telefon Doğrulama</xf:title>
+
+<xf:pageaction>
+	<xf:button href="{{ link('options/groups', {'group_id': 'wdPhoneVerify'}) }}" icon="config">Ayarlar</xf:button>
+</xf:pageaction>
+
+<xf:if is="!$enabled">
+	<div class="blockMessage blockMessage--warning blockMessage--iconic">
+		Telefon doğrulama şu an <strong>kapalı</strong>. Kayıt formunda telefon alanı görünmez.
+		NetGSM bilgilerini girip test SMS'i gönderdikten sonra <a href="{{ link('options/groups', {'group_id': 'wdPhoneVerify'}) }}">Ayarlar</a> sayfasından açın.
+	</div>
+</xf:if>
+<xf:if is="!$configured">
+	<div class="blockMessage blockMessage--error blockMessage--iconic">
+		NetGSM abone numarası, API şifresi veya gönderici adı (başlık) girilmemiş.
+	</div>
+</xf:if>
+<xf:if is="$sandbox">
+	<div class="blockMessage blockMessage--important blockMessage--iconic">
+		<strong>Sandbox modu açık:</strong> istekler NetGSM test ortamına gider, gerçek SMS gönderilmez.
+	</div>
+</xf:if>
+
+<div class="block">
+	<div class="block-container">
+		<h2 class="block-header">Durum</h2>
+		<div class="block-body">
+			<xf:formrow label="Doğrulanmış numara">
+				<strong>{$stats.verified|number}</strong>
+			</xf:formrow>
+			<xf:formrow label="Son 24 saat">
+				{$stats.sent24|number} gönderildi,
+				{$stats.failed24|number} başarısız,
+				{$stats.blocked24|number} sınıra takıldı
+				<xf:if is="$dailyLimit"><span class="u-muted">(günlük sınır: {$dailyLimit|number})</span></xf:if>
+			</xf:formrow>
+		</div>
+	</div>
+</div>
+
+<xf:form action="{{ link('wd-phone-verify/test') }}" class="block">
+	<div class="block-container">
+		<h2 class="block-header">Test SMS'i gönder</h2>
+		<div class="block-body">
+			<xf:textboxrow name="phone" value="{$testPhone}" type="tel" label="Cep telefonu" placeholder="05XX XXX XX XX"
+				explain="Ayarları kaydettikten sonra kendi numaranıza test SMS'i göndererek NetGSM bağlantısını doğrulayın. Bu SMS OTP paketinizden düşer." />
+			<xf:if is="$testResult">
+				<xf:formrow label="Sonuç">
+					<xf:if is="$testResult.ok">
+						<strong style="color:#2b8a3e">Gönderildi</strong>
+						<span class="u-muted">(jobId: {$testResult.jobId})</span>
+					<xf:else />
+						<strong style="color:#c92a2a">Gönderilemedi</strong>
+						<xf:if is="$testResult.errorCode"><code>{$testResult.errorCode}</code></xf:if>
+						<xf:if is="$testResult.httpStatus"><span class="u-muted">HTTP {$testResult.httpStatus}</span></xf:if>
+						<xf:if is="$testResult.detail"><div>{$testResult.detail}</div></xf:if>
+						<xf:if is="$testResult.requestId"><div class="u-muted">requestId: {$testResult.requestId}</div></xf:if>
+						<div class="u-muted" style="margin-top:6px">
+							Sık görülen hatalar: <code>invalid_credentials</code> abone numarası veya şifre hatalı ·
+							<code>ip_not_allowed</code> NetGSM panelinde sunucu IP'nize API izni verin ·
+							<code>REJECTED_HEADER</code> gönderici adı hesabınızda kayıtlı değil ·
+							<code>INSUFFICIENT_CREDIT</code> OTP paketiniz yok veya bitmiş ·
+							<code>FORBIDDEN</code> hesapta OTP hizmeti ya da API kullanıcısının SMS yetkisi yok.
+						</div>
+					</xf:if>
+				</xf:formrow>
+			</xf:if>
+		</div>
+		<xf:submitrow submit="Test SMS'i gönder" icon="confirm" />
+	</div>
+</xf:form>
+
+<div class="block">
+	<div class="block-outer">
+		<div class="block-outer-opposite">
+			<xf:form action="{{ link('wd-phone-verify') }}" method="get" class="u-inputSpacer">
+				<xf:textbox name="q" value="{$q}" placeholder="Numara veya kullanıcı adı ara" />
+				<xf:button type="submit" icon="search" />
+			</xf:form>
+		</div>
+	</div>
+	<div class="block-container">
+		<h2 class="block-header">Doğrulanmış numaralar</h2>
+		<div class="block-body">
+			<xf:if is="$records is not empty">
+				<xf:datalist>
+					<xf:datarow rowtype="header">
+						<xf:cell>Üye</xf:cell>
+						<xf:cell>Telefon</xf:cell>
+						<xf:cell>Doğrulama tarihi</xf:cell>
+						<xf:cell>&nbsp;</xf:cell>
+					</xf:datarow>
+					<xf:foreach loop="$records" value="$record">
+						<xf:datarow>
+							<xf:cell>
+								<xf:if is="$record.username">
+									<a href="{{ link('users/edit', {'user_id': $record.user_id, 'username': $record.username}) }}">{$record.username}</a>
+								<xf:else />
+									#{$record.user_id}
+								</xf:if>
+							</xf:cell>
+							<xf:cell>{$record.phone_formatted}</xf:cell>
+							<xf:cell><xf:date time="$record.verified_date" /></xf:cell>
+							<xf:action href="{{ link('wd-phone-verify/unlink', null, {'user_id': $record.user_id}) }}" overlay="true">Numarayı kaldır</xf:action>
+						</xf:datarow>
+					</xf:foreach>
+				</xf:datalist>
+			<xf:else />
+				<div class="block-row"><xf:if is="$q">Aramanızla eşleşen numara yok.<xf:else />Henüz doğrulanmış numara yok.</xf:if></div>
+			</xf:if>
+		</div>
+		<div class="block-footer">
+			<span class="block-footer-counter">{{ display_totals($records, $total) }}</span>
+		</div>
+	</div>
+	<xf:pagenav page="{$page}" perpage="{$perPage}" total="{$total}" link="wd-phone-verify" params="{{ {'q': $q} }}" wrapperclass="block-outer block-outer--after" />
+</div>
+
+<div class="block">
+	<div class="block-container">
+		<h2 class="block-header">Son gönderimler</h2>
+		<div class="block-body">
+			<xf:if is="$logs is not empty">
+				<xf:datalist>
+					<xf:datarow rowtype="header">
+						<xf:cell>Tarih</xf:cell>
+						<xf:cell>Telefon</xf:cell>
+						<xf:cell>Durum</xf:cell>
+						<xf:cell>Üye</xf:cell>
+						<xf:cell>IP</xf:cell>
+						<xf:cell>Ayrıntı</xf:cell>
+					</xf:datarow>
+					<xf:foreach loop="$logs" value="$log">
+						<xf:datarow>
+							<xf:cell><xf:date time="$log.log_date" /></xf:cell>
+							<xf:cell>{$log.phone_formatted}</xf:cell>
+							<xf:cell>{$log.status_label}</xf:cell>
+							<xf:cell><xf:if is="$log.username">{$log.username}<xf:else /><span class="u-muted">—</span></xf:if></xf:cell>
+							<xf:cell>{$log.ip_string}</xf:cell>
+							<xf:cell>
+								<xf:if is="$log.error_code"><code>{$log.error_code}</code></xf:if>
+								<xf:if is="$log.detail"><span class="u-muted">{$log.detail}</span></xf:if>
+							</xf:cell>
+						</xf:datarow>
+					</xf:foreach>
+				</xf:datalist>
+			<xf:else />
+				<div class="block-row">Henüz gönderim yok.</div>
+			</xf:if>
+		</div>
+	</div>
+</div>

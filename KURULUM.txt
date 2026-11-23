@@ -1,0 +1,57 @@
+WD Telefon Doğrulama 1.0.0 - XenForo 2.2 / 2.3
+Web Danışmanı · webdanismani.com · Destek: oblifex.com
+Ücretsizdir, satılamaz (CC BY-NC-SA 4.0).
+
+Kayıt sırasında NetGSM ile cep telefonuna SMS doğrulama kodu gönderir.
+Numarasını doğrulamayan kayıt olamaz; bir numara ile yalnızca bir hesap açılabilir.
+NetGSM'in güncel SMS API v3'ünü (token + /sms/v3/send/otp) kullanır.
+
+NETGSM HAZIRLIĞI (bir kez)
+1) NetGSM hesabınızda OTP SMS hizmeti (paket/kredi) olmalı.
+2) NetGSM panelinde: Abonelik İşlemleri > API İşlemleri
+   - Bir API alt kullanıcısı oluşturun (önerilir), şifresini not edin.
+   - "API Erişim İzinleri" bölümüne forum sunucunuzun IP adresini ekleyin.
+3) Gönderici adınız (SMS başlığı) hesabınızda kayıtlı ve onaylı olmalı.
+
+KURULUM
+1) ACP > Eklentiler > "Arşivden yükle/güncelle" ile bu zip'i yükleyin
+   (veya upload/ klasörünün içeriğini forum köküne atıp ACP'den "Yükle" deyin).
+2) ACP > Seçenekler > WD Telefon Doğrulama:
+   - NetGSM abone numarası, API şifresi ve gönderici adını girin.
+   - "Telefon doğrulamayı etkinleştir" şimdilik KAPALI kalsın.
+3) ACP > Kullanıcılar > Telefon doğrulama:
+   - Kendi numaranıza "Test SMS'i gönder" deyin. SMS geldiyse bağlantı tamam.
+   - Hata alırsanız sayfadaki hata kodu açıklamalarına bakın.
+4) Seçeneklerden "Telefon doğrulamayı etkinleştir"i açın.
+5) Çıkış yapıp (veya gizli pencerede) kayıt formunu deneyin.
+
+KAYIT AKIŞI
+- Kayıt formunda "Cep telefonu" ve "Doğrulama kodu" alanları çıkar.
+- Ziyaretçi numarasını yazıp "Kod gönder"e basar, SMS ile gelen kodu yazıp kayıt olur.
+- Numara 0532..., 532..., +90 532... gibi her yazımda kabul edilir; yalnızca Türkiye cep numaraları.
+- Kod oturumda yalnızca şifrelenmiş özet olarak tutulur; SMS metni dışında hiçbir yere yazılmaz.
+
+KORUMALAR (varsayılanlar, Seçenekler'den değişir)
+- Kod 6 hane, 5 dakika geçerli, 5 hatalı deneme hakkı.
+- Aynı ziyaretçi 60 saniye dolmadan yeni kod isteyemez.
+- Numara başına saatte 3, IP başına saatte 5 SMS.
+- Son 24 saatte toplam 300 SMS: bot saldırısında SMS krediniz tükenmez.
+- Bağlantı yarıda kesilip kodun gidip gitmediği belli değilse ikinci kod gönderilmez.
+- Yönetici panelinden üye eklemek, mevcut üyelerin girişi ve üye güncellemeleri etkilenmez.
+
+YÖNETİM (ACP > Kullanıcılar > Telefon doğrulama)
+- Doğrulanmış numaralar (numara veya kullanıcı adıyla arama), numarayı üyeden kaldırma
+- Son 50 gönderim: durum, IP, NetGSM hata kodu ve requestId
+- Test SMS'i gönderme
+- Üye silinince numarası otomatik serbest kalır.
+
+SORUN GİDERME
+- Kayıt formunda telefon alanı görünmüyorsa: ACP > Görünüm > Şablon değişiklikleri'nde
+  "wdpv_" ile başlayan değişikliklere bakın. Biri "uygulandı" görünmeli
+  (koşullar satırının önüne ekler; tutmazsa yedek değişiklik alanı formun başına ekler).
+- invalid_credentials: abone numarası veya API şifresi hatalı.
+- ip_not_allowed: NetGSM panelinde sunucu IP'nize API izni verin.
+- REJECTED_HEADER: gönderici adı hesabınızda kayıtlı değil.
+- INSUFFICIENT_CREDIT: OTP paketiniz yok veya bitmiş.
+- FORBIDDEN: hesapta OTP hizmeti ya da API kullanıcısının SMS yetkisi yok.
+- Sandbox modu yalnızca NetGSM demo hesaplarıyla çalışır; gerçek SMS göndermez.

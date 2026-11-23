@@ -1,0 +1,17 @@
+{
+    "legacy_addon_id": "",
+    "title": "WD Telefon Doğrulama",
+    "description": "Kayıt sırasında NetGSM ile SMS doğrulama kodu gönderir; numarasını doğrulamayan kayıt olamaz. Bir numara ile tek hesap, sahte kayıt ve bot koruması.",
+    "version_id": 1000070,
+    "version_string": "1.0.0",
+    "dev": "Web Danışmanı",
+    "dev_url": "https://webdanismani.com",
+    "faq_url": "",
+    "support_url": "https://oblifex.com",
+    "extra_urls": [],
+    "require": {
+        "XF": [2020070, "XenForo 2.2.0+"],
+        "php": ["7.2.0", "PHP 7.2.0+"]
+    },
+    "icon": "fa-mobile-alt"
+}

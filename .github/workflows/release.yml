@@ -1,0 +1,30 @@
+name: Sürüm / Release
+
+# v1.0.1 gibi bir etiket gönderildiğinde XenForo'ya kurulabilir zip'i oluşturup sürüme ekler.
+# Builds the installable XenForo add-on zip and attaches it to the release when a tag like v1.0.1 is pushed.
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+      - name: XML verilerini üret / Build _data XML
+        run: php build.php
+      - name: PHP sözdizimi / PHP lint
+        run: find upload -name '*.php' -print0 | xargs -0 -n1 php -l
+      - name: ZIP oluştur / Build ZIP
+        run: zip -qr wd-telefon-dogrulama.zip upload KURULUM.txt LICENSE
+      - uses: softprops/action-gh-release@v2
+        with:
+          files: wd-telefon-dogrulama.zip
+          generate_release_notes: true
